@@ -1,0 +1,9 @@
+Check the behavior of Lazy evaluation
+Check what is tail recursion
+Check the concept of function returning functions
+Check function with keyword paramaters, Functions with variable number of parameters
+Check High order functions
+Explore map, reduce, filter , foldleft, foldRight ,scanLeft,scanRight and collect methods
+usage of partial applications on the above methods
+check currying in functions
+Check generics

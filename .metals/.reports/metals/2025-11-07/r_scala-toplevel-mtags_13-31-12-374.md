@@ -1,6 +1,4 @@
-case class Person(name: String, age: Int)
-case class Thing(name: String, description: String)
-
+error id: file://<WORKSPACE>/curry.scala:[504..505) in Input.VirtualFile("file://<WORKSPACE>/curry.scala", "
 def funchain(x:Int)(Y:String):String = {
     s"$x is the number and $Y is the string"
 }
@@ -16,20 +14,10 @@ def multilevel(process:String)(location:String)(iterations:Int):Unit={
         println(s"Processing $process  - iteration $i in the location $location")
     }
 }
-def classChain(entity:AnyRef)(processname:String):Unit = {
-    print(s"Processing $entity for the process $processname")
-}
-
-
+def 
 
 @main def functionAsReturnValue(): Unit = {
-
-    var x:AnyRef=new Person("Roger",20)
-    var classChainPart=classChain(x)
-    classChainPart("Application Verification")
-    x=new Thing("Computer","Processing device")
-    classChainPart("Assembling")
-  /* println(funchain(10)("Hello World"))
+   println(funchain(10)("Hello World"))
    var x=100
    val secondPart=funchain(x)
    println(secondPart("Scala is great"))
@@ -47,5 +35,12 @@ def classChain(entity:AnyRef)(processname:String):Unit = {
 
    design("Bangalore")(5)
    designchennai(5)
-   designmumbai(3)*/
-}
+   designmumbai(3)
+}")
+file://<WORKSPACE>/file:<WORKSPACE>/curry.scala
+file://<WORKSPACE>/curry.scala:19: error: expected identifier; obtained at
+@main def functionAsReturnValue(): Unit = {
+^
+#### Short summary: 
+
+expected identifier; obtained at
