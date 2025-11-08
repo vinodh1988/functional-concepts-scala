@@ -24,3 +24,4 @@ The `Nothing` type in Scala is a special type that represents the absence of a v
 - **Signals Abnormal Termination**: It is often used to indicate that a method does not return normally, such as methods that throw exceptions.
 
 The `Nothing` type is a powerful tool in Scala's type system, enabling more expressive and type-safe code.
+
