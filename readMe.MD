@@ -1,30 +1,44 @@
 ### Scala Iterative Statements
 
-In Scala, iterative statements are used to execute a block of code repeatedly based on a condition. Common iterative constructs include:
+### Partial Functions in Scala
 
-1. **`for` Loop**: Used for iterating over a range, collection, or generator.
-    ```scala
-    for (i <- 1 to 5) {
-         println(i)
-    }
-    ```
+Partial functions in Scala are functions that are defined only for a subset of their input domain. They are particularly useful when you want to handle specific cases of input while ignoring others. A partial function is represented by the `PartialFunction` trait.
 
-2. **`while` Loop**: Executes as long as the condition is true.
-    ```scala
-    var i = 1
-    while (i <= 5) {
-         println(i)
-         i += 1
-    }
-    ```
+#### Defining a Partial Function
+A partial function can be defined using the `case` keyword:
+```scala
+val partial: PartialFunction[Int, String] = {
+    case 1 => "One"
+    case 2 => "Two"
+    case 3 => "Three"
+}
+```
 
-3. **`do-while` Loop**: Executes the block at least once before checking the condition.
-    ```scala
-    var i = 1
-    do {
-         println(i)
-         i += 1
-    } while (i <= 5)
-    ```
+#### Checking if a Partial Function is Defined
+You can use the `isDefinedAt` method to check if the partial function is defined for a specific input:
+```scala
+println(partial.isDefinedAt(1)) // true
+println(partial.isDefinedAt(4)) // false
+```
 
-Scala encourages the use of functional constructs like `map`, `filter`, and `foreach` over traditional loops for better readability and immutability.
+#### Applying a Partial Function
+When applying a partial function, ensure that it is defined for the input to avoid runtime errors:
+```scala
+if (partial.isDefinedAt(2)) {
+    println(partial(2)) // "Two"
+}
+```
+
+#### Benefits of Partial Functions
+1. **Selective Input Handling**: Allows you to focus on specific cases without handling all possible inputs.
+2. **Improved Readability**: The `case` syntax makes the intent clear and concise.
+3. **Composability**: Partial functions can be combined using `orElse` to handle a broader range of inputs:
+     ```scala
+     val additional: PartialFunction[Int, String] = {
+         case 4 => "Four"
+     }
+     val combined = partial.orElse(additional)
+     println(combined(4)) // "Four"
+     ```
+
+Partial functions are a powerful feature in Scala, enabling more expressive and modular code when dealing with specific input cases.
