@@ -1,11 +1,11 @@
-case class Transcation(id: String, amount: Double, description: String, totalAmount: Double)
+case class Transaction private(id: String, amount: Double, description: String, totalAmount: Double)
 
 object Transaction{
-    def apply(id: String, amount: Double, description: String)(block: Double => Double): Transcation = {
+    def apply(id: String, amount: Double, description: String)(block: Double => Double): Transaction = {
         val processedAmount = block(amount)
         val totalAmount = amount + processedAmount
         println(s"Processed Amount for Transaction $id: $processedAmount")
-        new Transcation(id, amount, description, totalAmount)
+        new Transaction(id, amount, description, totalAmount)
     }
 }
 
@@ -22,5 +22,8 @@ object TransactionApp {
 
         println(s"Transaction ID: ${transaction1.id}, Original Amount: ${transaction1.amount}, Description: ${transaction1.description}, Total Amount after processing: ${transaction1.totalAmount}")
         println(s"Transaction ID: ${transaction2.id}, Original Amount: ${transaction2.amount}, Description: ${transaction2.description}, Total Amount after processing: ${transaction2.totalAmount}")
+        
+        val transaction3 = new Transaction("TXN1003", 750.0, "Service Charge", 765.0)
+        println(s"Transaction ID: ${transaction3.id}, Original Amount: ${transaction3.amount}, Description: ${transaction3.description}, Total Amount after processing: ${transaction3.totalAmount}")
     }
 }
