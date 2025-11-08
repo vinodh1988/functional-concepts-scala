@@ -11,5 +11,5 @@ def paintMachine(machine:String):Unit = {
 @main def composeFunctions(): Unit = {
     val parts = List("Engine", "Wheels", "Chassis")
     val process=assemble.andThen(paintMachine)
-    process(parts)
+    process(parts) //composition of functions
 }
