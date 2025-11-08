@@ -1,0 +1,32 @@
+Scala does not have checked vs unchecked exceptions
+
+checked - mandatory handling is needed
+unchecked - no mandatory handling
+
+the method that causes checked exceptionn must notify the caller
+by using throws keyword
+
+since scala has no checked vs unchecked categories there is no throws keyword
+
+in scala to handle exceptions
+
+four keywords
+
+1. try
+2. throw
+3. catch
+4. finally
+
+there is no separate exception hierarchy in scala
+it is same as java
+
+we use same java classes to represent exceptions
+
+like java
+1. Throwable
+   1. Error
+   2. Exception
+       1. RuntimeException
+       2. IOException
+       3. SQLException
+       4. etc
